@@ -1,0 +1,40 @@
+meta {
+  name: books mutation
+  type: graphql
+  seq: 3
+}
+
+post {
+  url: {{url}}/graphql
+  body: graphql
+  auth: inherit
+}
+
+body:graphql {
+  query {
+    books {
+      edges {
+        node {
+          id
+          title
+          author
+        }
+        cursor
+      }
+      totalCount
+      pageInfo {
+          endCursor
+          hasNextPage
+        }
+    }
+    book(id: "/api/books/17") {
+      id
+      title
+      author
+      category {
+        name
+      }
+    }
+  }
+  
+}

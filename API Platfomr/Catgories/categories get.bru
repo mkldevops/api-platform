@@ -1,0 +1,27 @@
+meta {
+  name: categories get
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{url}}/books?order%5Btitle%5D=asc
+  body: none
+  auth: bearer
+}
+
+params:query {
+  order[title]: asc
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {"title": "The Hitchhikers Guide to the Galaxy", "author": "Douglas Adams", "year": "1979"}
+}
+
+assert {
+  res.status: eq 201
+}

@@ -1,0 +1,19 @@
+meta {
+  name: book get
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{url}}/books
+  body: none
+  auth: none
+}
+
+body:json {
+  {"title": "The Hitchhikers Guide to the Galaxy", "author": "Douglas Adams", "year": "1979"}
+}
+
+assert {
+  res.status: eq 201
+}

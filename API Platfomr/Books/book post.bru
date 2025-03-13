@@ -1,0 +1,27 @@
+meta {
+  name: book post
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/books
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "title": "Spain Book",
+    "author": "Alberto Adams",
+    "year": "2011"
+  }
+}
+
+assert {
+  res.status: eq 201
+}

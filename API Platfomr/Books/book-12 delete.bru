@@ -1,0 +1,23 @@
+meta {
+  name: book-12 delete
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{url}}/books/11
+  body: none
+  auth: none
+}
+
+headers {
+  Content-Type: application/merge-patch+json
+}
+
+body:json {
+  {"title": "The Hitchhikers Guide to the Universe", "author": "Douglas Adams", "year": "1980"}
+}
+
+assert {
+  res.status: eq 204
+}
